@@ -6,7 +6,7 @@ import { IStyle, TPokeType } from "./interface";
 export const CardContainer = styled.div<IStyle>`
   width: 30%;
   height: 250px;
-  margin-top: 4em;
+  margin-top: 2em;
 
   display: flex;
   align-items: center;
@@ -116,7 +116,7 @@ export const TypeBadge = styled.div<TPokeType>`
 export const Loading = styled.div`
   width: 30%;
   height: 250px;
-  margin-top: 4em;
+  margin-top: 2em;
 
   display: flex;
   align-items: center;
@@ -137,7 +137,7 @@ export const LoadingGif = styled.img`
 export const Error = styled.div`
   width: 30%;
   height: 250px;
-  margin-top: 4em;
+  margin-top: 2em;
 
   background: linear-gradient(90deg, ${colors.electric}, ${colors.red});
 

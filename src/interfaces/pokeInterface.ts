@@ -1,6 +1,6 @@
 export interface IPokemonInfos {
   name: string;
-  url: string;
+  url?: string;
 }
 
 export interface IPokedex {

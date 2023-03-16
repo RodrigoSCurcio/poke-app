@@ -17,8 +17,6 @@ export function Pagination({ handleClick }: IPagination) {
     [page, pokeNumber]
   );
 
-  console.log(pokeNumber);
-
   return (
     <S.PaginationStyle>
       <MdNavigateBefore
@@ -27,6 +25,8 @@ export function Pagination({ handleClick }: IPagination) {
           if (page !== 1) {
             handleClick(pokeNumber - 9);
             pagination("previous");
+          } else {
+            toast.warn("Não é possivel seguir com a ação.");
           }
         }}
       />
