@@ -29,8 +29,6 @@ export function Card({ pokemon }: ICard) {
     })();
   }, [pokemon]);
 
-  console.log(pokemon)
-
   if (pokemonData && !loading) {
     return (
       <S.CardContainer types={pokemonData.types}>
