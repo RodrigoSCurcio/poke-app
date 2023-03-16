@@ -15,11 +15,12 @@ export const colors = {
   electric: "#F8D030",
   ground: "#E0C068",
   fairy: "#EE99AC",
-  fight: "#C03028",
+  fighting: "#C03028",
   psychic: "#F85888",
   rock: "#B8A038",
   ghost: "#705898",
   ice: "#98D8D8",
   dragon: "#7038F8",
   flying: '#A98FF3',
+  steel: '#B7B7CE',
 };

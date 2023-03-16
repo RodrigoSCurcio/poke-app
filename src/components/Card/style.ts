@@ -102,7 +102,7 @@ export const TypeBadge = styled.div<TPokeType>`
   text-align: center;
   font-weight: bold;
 
-  width: 45%;
+  width: 50%;
 
   border: 2px solid ${colors.white};
   border-radius: 10px;

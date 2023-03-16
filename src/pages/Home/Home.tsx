@@ -1,48 +1,63 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { toast } from "react-toastify";
 
 import * as S from "./style";
 
-import { IPokedex } from "../../interfaces/pokeInterface";
-import { IPaginagiton } from "./interface";
+import { Card, Pagination } from "../../components";
 
 import { getFirstGeneration } from "../../services/pokemon";
-import { Card } from "../../components/Card";
+import { IPokedex } from "../../interfaces/pokeInterface";
+
+import loadingGif from "../../assets/loadingHome.gif";
+import errorImg from "../../assets/dittoSad.png";
 
 export function Home() {
-  const [pokeList, setPokeList] = useState<IPokedex>();
-  const [pagination, setPagination] = useState<IPaginagiton>({
-    count: 0,
-    next: "",
-    previous: "",
-    page: 1,
-  });
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
-  useEffect(() => {
+  const [pokeList, setPokeList] = useState<IPokedex>();
+
+  const pagination = useCallback((offset?: number) => {
     (async () => {
-      const response = await getFirstGeneration();
+      console.log(offset);
+
+      const response = await getFirstGeneration(offset ? offset : 0);
       if (response && response.status === 200) {
         setPokeList(response.data);
-        setPagination({
-          ...pagination,
-          count: response.data.count,
-          next: response.data.next,
-          previous: response.data.previous,
-        });
+
+        setLoading(false);
       } else {
         toast.error("Erro ao buscar dados no banco.");
+        setLoading(false);
+        setError(true);
       }
     })();
   }, []);
 
+  useEffect(() => {
+    pagination();
+  }, [pagination]);
+
   return (
     <S.HomeStyle>
-      {pokeList ? (
-        pokeList.results.map((pokemon, index) => {
-          return <Card key={index} pokemon={pokemon} />;
-        })
-      ) : (
-        <strong>Error</strong>
+      {loading && <S.LoadingGif src={loadingGif} alt="loading home" />}
+
+      {pokeList && !loading && (
+        <S.Container>
+          <S.PokeContainer>
+            {pokeList.results.map((pokemon, index) => {
+              return <Card key={index} pokemon={pokemon} />;
+            })}
+          </S.PokeContainer>
+          <Pagination handleClick={pagination} />
+        </S.Container>
+      )}
+
+      {error && !loading && (
+        <S.ErrorContainer>
+          <span>Error ao buscar dados do servidor.</span>
+          <S.ErrorImg src={errorImg} alt="error home" />
+        </S.ErrorContainer>
       )}
     </S.HomeStyle>
   );
