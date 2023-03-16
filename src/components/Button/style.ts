@@ -23,5 +23,6 @@ export const ButtonStyle = styled.button`
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
     color: ${colors.white};
     background-color: black;
+    transition: all 0.5s;
   }
 `;

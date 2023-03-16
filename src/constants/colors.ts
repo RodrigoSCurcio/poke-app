@@ -21,4 +21,5 @@ export const colors = {
   ghost: "#705898",
   ice: "#98D8D8",
   dragon: "#7038F8",
+  flying: '#A98FF3',
 };

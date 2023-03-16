@@ -7,7 +7,7 @@ export function Header() {
   return (
     <S.HeaderStyle>
       <S.Menu>
-        <BiMenuAltLeft color="#000" size={25} />
+        <BiMenuAltLeft size={25} />
       </S.Menu>
       <Button>Login</Button>
       <S.Circle>
