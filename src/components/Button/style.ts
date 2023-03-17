@@ -1,9 +1,21 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { colors } from "../../constants";
+import { IButton } from "./interface";
 
-export const ButtonStyle = styled.button`
-  width: 100px;
-  height: 32px;
+export const ButtonStyle = styled.button<IButton>`
+  ${({ styleType }) =>
+    styleType === "none" &&
+    css`
+      width: 100px;
+      height: 32px;
+    `}
+
+  ${({ styleType }) =>
+    styleType === "login" &&
+    css`
+      width: 300px;
+      height: 40px;
+    `}
 
   border-radius: 4px;
   border: 2px solid ${colors.black};

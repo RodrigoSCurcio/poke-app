@@ -1,28 +1,48 @@
-import styled from "styled-components";
-import { colors } from "../../constants";
+import styled, { css } from "styled-components";
 
-export const InputStyle = styled.div`
+import { colors } from "../../constants";
+import { IStyle } from "./interface";
+
+export const InputStyle = styled.div<IStyle>`
   display: flex;
   justify-content: flex-start;
   align-items: center;
 
-  margin-top: 1em;
   padding: 5px;
 
-  width: 250px;
+  // Padrao
+  ${({ styleType }) =>
+    styleType === "none" &&
+    css`
+      margin-top: 1em;
 
-  border: 2px solid ${colors.black};
-  border-radius: 4px;
+      width: 250px;
 
-  background-color: transparent;
+      border: 2px solid ${colors.black};
+      border-radius: 4px;
+    `}
 
+  // Tela de login
+  ${({ styleType }) =>
+    styleType === "login" &&
+    css`
+      width: 300px;
+      height: 40px;
+
+      background-color: ${colors.white};
+
+      border: 2px solid ${colors.black};
+      border-radius: 4px;
+    `}
 `;
 
-export const Input = styled.input`
+export const Input = styled.input<IStyle>`
   border: none;
   margin-left: 5px;
   outline: none;
 
   font-weight: bold;
   font-size: 16px;
+
+  background-color: transparent;
 `;

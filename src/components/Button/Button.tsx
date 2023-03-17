@@ -1,7 +1,6 @@
-import { ButtonProps } from "./interface";
+import { IButton } from "./interface";
 import { ButtonStyle } from "./style";
 
-
-export function Button({ children, ...rest}: ButtonProps) {
-  return <ButtonStyle>{children}</ButtonStyle>;
+export function Button({ children, styleType = "none", ...rest }: IButton) {
+  return <ButtonStyle styleType={styleType}>{children}</ButtonStyle>;
 }

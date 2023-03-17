@@ -47,6 +47,7 @@ export function Home() {
           <InputText
             placeholder="Ex: bulbasaur"
             onChange={(e) => setSearch({ ...search, name: e.target.value })}
+            search
           />
           {search.name && <Card pokemon={search} />}
         </>
