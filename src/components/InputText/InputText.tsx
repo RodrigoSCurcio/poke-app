@@ -12,7 +12,7 @@ export function InputText({
   search,
   user,
   styleType = "none",
-  type = "text",
+  type,
 }: IInput) {
   const [seePassword, setSeePassword] = useState(false);
 

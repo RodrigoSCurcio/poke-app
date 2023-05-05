@@ -11,11 +11,18 @@ export const ButtonStyle = styled.button<IButton>`
     `}
 
   ${({ styleType }) =>
-    styleType === "login" &&
+    styleType === "medium" &&
     css`
       width: 300px;
       height: 40px;
     `}
+  
+  &:disabled {
+    color: ${colors.light_black};
+    background-color: ${colors.light_black};
+
+    cursor: not-allowed;
+  }
 
   border-radius: 4px;
   border: 2px solid ${colors.black};
@@ -36,5 +43,11 @@ export const ButtonStyle = styled.button<IButton>`
     color: ${colors.white};
     background-color: black;
     transition: all 0.5s;
+
+    &:disabled {
+      color: ${colors.light_black};
+      background-color: ${colors.light_black};
+      box-shadow: none;
+    }
   }
 `;

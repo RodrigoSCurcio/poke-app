@@ -22,9 +22,9 @@ export const InputStyle = styled.div<IStyle>`
       border-radius: 4px;
     `}
 
-  // Tela de login
+  // Background branco
   ${({ styleType }) =>
-    styleType === "login" &&
+    styleType === "white" &&
     css`
       width: 300px;
       height: 40px;
@@ -34,6 +34,10 @@ export const InputStyle = styled.div<IStyle>`
       border: 2px solid ${colors.black};
       border-radius: 4px;
     `}
+
+  div {
+    margin-top: 7px;
+  }
 `;
 
 export const Input = styled.input<IStyle>`

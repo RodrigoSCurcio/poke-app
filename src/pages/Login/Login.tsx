@@ -15,13 +15,13 @@ export function Login() {
             user
             placeholder="Usuário"
             onChange={() => {}}
-            styleType="login"
+            styleType="white"
           />
           <InputText
             password
             placeholder="Senha"
             onChange={() => {}}
-            styleType="login"
+            styleType="white"
           />
           <Button type="button" styleType="login">
             Login

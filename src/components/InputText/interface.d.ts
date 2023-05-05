@@ -1,4 +1,6 @@
-export interface IInput {
+import { InputHTMLAttributes } from "react";
+
+export interface IInput extends InputHTMLAttributes<HTMLInputElement> {
   onChange: (e) => void;
   placeholder: string;
 
