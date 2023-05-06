@@ -1,15 +1,17 @@
+// React
 import { useEffect, useState } from "react";
-
+// Styles
 import * as S from "./style";
-
+// Helpers
 import { imageTreatment } from "../../helpers";
+// Services
 import { getPokemon } from "../../services/pokemon";
-
-import { IPokemon } from "../../interfaces/pokeInterface";
-import { ICard } from "./interface";
-
+// Img
 import loadingGif from "../../assets/dark-loading.gif";
 import errorImg from "../../assets/pikachuError.png";
+// Interfaces
+import { IPokemon } from "../../interfaces/pokeInterface";
+import { ICard } from "./interface";
 
 export function Card({ pokemon }: ICard) {
   const [pokemonData, setPokemonData] = useState<IPokemon>();

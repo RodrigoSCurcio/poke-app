@@ -1,9 +1,12 @@
+// React
 import { useState, useCallback } from "react";
+// Libs
 import { BiSearchAlt2 } from "react-icons/bi";
 import { AiFillEyeInvisible, AiFillEye, AiOutlineUser } from "react-icons/ai";
-
-import { IInput } from "./interface";
+// Styles
 import * as S from "./style";
+// Interfaces
+import { IInput } from "./interface";
 
 export function InputText({
   onChange,

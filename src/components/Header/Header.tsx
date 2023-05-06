@@ -1,15 +1,20 @@
+// React
+import { useCallback, useEffect, useState } from "react";
+// Libs
 import { BiMenuAltLeft } from "react-icons/bi";
 import { Link, useLocation } from "react-router-dom";
-import { Button } from "../Button";
-
-import * as S from "./style";
 import { useAtomValue, useSetAtom } from "jotai";
-import { userAuthAtom } from "../../jotai/authUser/atoms";
 import { onAuthStateChanged, signOut } from "firebase/auth";
+// Styles
+import * as S from "./style";
+// Auth
 import { auth } from "../../firebase";
-import { useCallback, useEffect, useState } from "react";
-
+// Atoms
+import { userAuthAtom } from "../../jotai/authUser/atoms";
+// Img
 import loadingImg from "../../assets/loading.gif";
+// Components
+import { Button } from "../Button";
 
 export function Header() {
   const location = useLocation();

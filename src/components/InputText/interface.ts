@@ -1,7 +1,7 @@
 import { InputHTMLAttributes } from "react";
 
 export interface IInput extends InputHTMLAttributes<HTMLInputElement> {
-  onChange: (e) => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder: string;
 
   type?: string;
