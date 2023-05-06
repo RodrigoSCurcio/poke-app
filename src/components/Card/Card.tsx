@@ -8,7 +8,7 @@ import { getPokemon } from "../../services/pokemon";
 import { IPokemon } from "../../interfaces/pokeInterface";
 import { ICard } from "./interface";
 
-import loadingGif from "../../assets/loading.gif";
+import loadingGif from "../../assets/dark-loading.gif";
 import errorImg from "../../assets/pikachuError.png";
 
 export function Card({ pokemon }: ICard) {

@@ -1,7 +1,9 @@
-import * as S from "./style";
-
-import notFound from "../../assets/pikachuSurprised.png";
+// Libs
 import { Link } from "react-router-dom";
+// Styles
+import * as S from "./style";
+// Img
+import notFound from "../../assets/pikachuSurprised.png";
 
 export function Error() {
   return (

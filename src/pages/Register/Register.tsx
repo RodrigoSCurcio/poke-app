@@ -1,23 +1,29 @@
-import * as S from "./style";
-import logo from "../../assets/pokeball.png";
-import { Link, useNavigate } from "react-router-dom";
-import { Button, InputText } from "../../components";
+// React
 import { useState } from "react";
-
+// Libs
+import { Link, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../firebase";
 import { toast } from "react-toastify";
+// Styles
+import * as S from "./style";
+// Components
+import { Button, InputText } from "../../components";
+// Auth
+import { auth } from "../../firebase";
+// Img
+import logo from "../../assets/pokeball.png";
+
 
 export function Register() {
   const [email, setEmail] = useState<string>();
   const [password, setPassword] = useState<string>();
   const [repeatPassword, setRepeatPassword] = useState<string>();
 
-  const [loading, seLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
-  const appearance = (status: string) => {
+  const error = (status: string) => {
     switch (status) {
       case "auth/weak-password":
         return toast.error("A senha deve ter pelo menos 6 caracteres");
@@ -33,7 +39,7 @@ export function Register() {
   async function createUser() {
     if (email && password) {
       if (password === repeatPassword) {
-        seLoading(true);
+        setLoading(true);
         await createUserWithEmailAndPassword(auth, email, password)
           .then(() => {
             toast.success("Usuário cadastrado com sucesso!");
@@ -42,8 +48,8 @@ export function Register() {
             }, 3000);
           })
           .catch((e) => {
-            appearance(e.code);
-            seLoading(false);
+            error(e.code);
+            setLoading(false);
           });
       } else {
         toast.error("As senhas não coincidem.");

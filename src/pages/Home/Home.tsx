@@ -1,13 +1,16 @@
+// React
 import { useEffect, useState, useCallback } from "react";
+// Libs
 import { toast } from "react-toastify";
-
+// Styles
 import * as S from "./style";
-
+// Components
 import { Card, InputText, Pagination } from "../../components";
-
+// Services
 import { getPokemonList } from "../../services/pokemon";
+// Interfaces
 import { IPokedex, IPokemonInfos } from "../../interfaces/pokeInterface";
-
+// Imgs
 import loadingGif from "../../assets/loadingHome.gif";
 import errorImg from "../../assets/dittoSad.png";
 
