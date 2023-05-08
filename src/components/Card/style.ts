@@ -115,13 +115,12 @@ export const TypeBadge = styled.div<TPokeType>`
 
 export const Loading = styled.div`
   width: 30%;
+  max-width: 100%;
   height: 250px;
   margin-top: 2em;
 
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
+  object-fit: cover;
+  display: block;
 
   border-radius: 8px;
   cursor: not-allowed;

@@ -10,6 +10,7 @@ import { Card, InputText, Pagination } from "../../components";
 import { getPokemonList } from "../../services/pokemon";
 // Interfaces
 import { IPokedex, IPokemonInfos } from "../../interfaces/pokeInterface";
+import { IPaginationValues } from "../../components/Pagination/interface";
 // Imgs
 import loadingGif from "../../assets/loadingHome.gif";
 import errorImg from "../../assets/dittoSad.png";
@@ -23,8 +24,14 @@ export function Home() {
     name: "",
   });
 
+  const [pagination, setPagination] = useState<IPaginationValues>({
+    pokeNumber: 0,
+    page: 1,
+  });
+
   const getPokes = useCallback((offset?: number) => {
     (async () => {
+      setLoading(true);
       const response = await getPokemonList(offset ? offset : 0);
       if (response && response.status === 200) {
         setPokeList(response.data);
@@ -63,7 +70,7 @@ export function Home() {
               return <Card key={index} pokemon={pokemon} />;
             })}
           </S.PokeContainer>
-          <Pagination handleClick={getPokes} />
+          <Pagination handleClick={getPokes} pagination={pagination} setPagination={setPagination} />
         </S.Container>
       )}
 

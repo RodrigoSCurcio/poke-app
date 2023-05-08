@@ -1,20 +1,30 @@
-import { useState, useCallback } from "react";
+// React
+import { useCallback } from "react";
+// Libs
 import { MdNavigateNext, MdNavigateBefore } from "react-icons/md";
 import { toast } from "react-toastify";
+// Styles
+import * as S from "./style";
+// Interface
 import { IPagination } from "./interface";
 
-import * as S from "./style";
-
-export function Pagination({ handleClick }: IPagination) {
-  const [pokeNumber, setPokeNumber] = useState<number>(0);
-  const [page, setPage] = useState<number>(1);
-
-  const pagination = useCallback(
+export function Pagination({
+  handleClick,
+  pagination,
+  setPagination,
+}: IPagination) {
+  const offset = useCallback(
     (offset: string) => {
-      setPokeNumber(offset === "previous" ? pokeNumber - 9 : pokeNumber + 9);
-      setPage(offset === "previous" ? page - 1 : page + 1);
+      setPagination({
+        ...pagination,
+        pokeNumber:
+          offset === "previous"
+            ? pagination.pokeNumber - 9
+            : pagination.pokeNumber + 9,
+        page: offset === "previous" ? pagination.page - 1 : pagination.page + 1,
+      });
     },
-    [page, pokeNumber]
+    [pagination, setPagination]
   );
 
   return (
@@ -22,9 +32,9 @@ export function Pagination({ handleClick }: IPagination) {
       <MdNavigateBefore
         size={20}
         onClick={() => {
-          if (page !== 1) {
-            handleClick(pokeNumber - 9);
-            pagination("previous");
+          if (pagination.page !== 1) {
+            handleClick(pagination.pokeNumber - 9);
+            offset("previous");
           } else {
             toast.warn("Não é possivel seguir com a ação.");
           }
@@ -32,15 +42,15 @@ export function Pagination({ handleClick }: IPagination) {
       />
       <S.PageInfo>
         <span>
-          Página <strong>{page}</strong> de 17
+          Página <strong>{pagination.page}</strong> de 17
         </span>
       </S.PageInfo>
       <MdNavigateNext
         size={20}
         onClick={() => {
-          if (page < 17) {
-            handleClick(pokeNumber + 9);
-            pagination("next");
+          if (pagination.page < 17) {
+            handleClick(pagination.pokeNumber + 9);
+            offset("next");
           } else {
             toast.warn("Não há mais páginas para acessar.");
           }
