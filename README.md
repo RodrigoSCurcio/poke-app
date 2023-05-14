@@ -9,6 +9,9 @@
 + react
 + typescript
 + styled components
++ jotai
++ firebase
++ fireStore
 
 ## Rodando a Aplicação
 
