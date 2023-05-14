@@ -99,7 +99,7 @@ export function Register() {
           />
           <Button
             type="button"
-            styleType="medium"
+            styleType="large"
             onClick={() => {
               createUser();
             }}

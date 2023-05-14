@@ -85,7 +85,7 @@ export function Login() {
           />
           <Button
             type="button"
-            styleType="medium"
+            styleType="large"
             disabled={loading}
             onClick={() => {
               login();

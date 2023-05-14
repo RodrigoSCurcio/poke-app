@@ -1,5 +1,5 @@
 import axios from "axios";
 
-export const DevelopersPokemon = axios.create({
+export const PokeApi = axios.create({
   baseURL: "https://pokeapi.co/api/v2/",
 });

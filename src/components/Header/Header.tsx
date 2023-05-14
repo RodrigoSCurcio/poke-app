@@ -15,6 +15,7 @@ import { userAuthAtom } from "../../jotai/authUser/atoms";
 import loadingImg from "../../assets/loading.gif";
 // Components
 import { Button } from "../Button";
+import { Drawer } from "../Drawer";
 
 export function Header() {
   const location = useLocation();
@@ -22,6 +23,7 @@ export function Header() {
   const setAuthUser = useSetAtom(userAuthAtom);
 
   const [loading, setLoading] = useState(true);
+  const [drawer, setDrawer] = useState(false);
 
   const loggout = useCallback(async () => {
     await signOut(auth);
@@ -64,12 +66,19 @@ export function Header() {
   return (
     <S.HeaderStyle>
       <S.Menu>
-        <BiMenuAltLeft size={25} />
+        <BiMenuAltLeft size={25} onClick={() => setDrawer(true)} />
       </S.Menu>
+
+      {drawer && <Drawer setOpen={setDrawer} />}
+
       {!userAuth.email ? (
         <Link to="/login">
           <Button type="button">
-            {loading ? <img src={loadingImg} width={10} alt="loading" /> : "Login"}
+            {loading ? (
+              <img src={loadingImg} width={10} alt="loading" />
+            ) : (
+              "Login"
+            )}
           </Button>
         </Link>
       ) : (
@@ -79,7 +88,7 @@ export function Header() {
             loggout();
           }}
         >
-          Sair
+          Loggout
         </Button>
       )}
 
