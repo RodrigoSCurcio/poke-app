@@ -34,6 +34,13 @@ export const Menu = styled.div`
   }
 `;
 
+export const Buttons = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  
+  width: 100%;
+`;
+
 export const Circle = styled.div`
   position: absolute;
   margin-left: auto;

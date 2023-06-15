@@ -12,11 +12,23 @@ import errorImg from "../../assets/pikachuError.png";
 // Interfaces
 import { IPokemon } from "../../interfaces/pokeInterface";
 import { ICard } from "./interface";
+// Libs
+import { useAtomValue } from "jotai";
+import { toast } from "react-toastify";
+import { addDoc, collection } from "firebase/firestore";
+// Firebase
+import { db } from "../../firebase";
+// Atoms
+import { userAuthAtom } from "../../jotai/authUser/atoms";
+import { teamAtom } from "../../jotai/pokeTeam/atoms";
 
 export function Card({ pokemon }: ICard) {
   const [pokemonData, setPokemonData] = useState<IPokemon>();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+
+  const userAuth = useAtomValue(userAuthAtom);
+  const team = useAtomValue(teamAtom);
 
   useEffect(() => {
     (async () => {
@@ -31,9 +43,34 @@ export function Card({ pokemon }: ICard) {
     })();
   }, [pokemon]);
 
+  const handleAdd = () => {
+    if (team.pokemons.length === 6) {
+      return toast.warn(
+        "Seu time já esta completo! Caso queira adicionar um novo pokemon remova um pokemon do seu time."
+      );
+    }
+    if (userAuth.email) {
+      (async () => {
+        await addDoc(collection(db, "team"), {
+          user: userAuth.email,
+          pokemon: pokemon.name,
+        })
+          .then(() => {
+            toast.success("Pokemon adicionado com sucesso!");
+          })
+          .catch((error) => {
+            toast.error("Não foi possivel adicionar o pokemon a lista.");
+            console.log(error);
+          });
+      })();
+    } else {
+      toast.warning("É necessário estar logado para prosseguir");
+    }
+  };
+
   if (pokemonData && !loading) {
     return (
-      <S.CardContainer types={pokemonData.types}>
+      <S.CardContainer types={pokemonData.types} onClick={() => handleAdd()}>
         <S.NameBadge>{pokemonData.name}</S.NameBadge>
         <S.PokeInfos>
           <S.ImgContainer>
