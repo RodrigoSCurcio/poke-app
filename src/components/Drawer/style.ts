@@ -27,7 +27,7 @@ export const Overlay = styled.div`
 export const DrawerStyle = styled.div`
   z-index: 1;
 
-  background: ${colors.poison};
+  background: ${colors.water};
 
   width: 350px;
   height: 100vh;
@@ -76,17 +76,17 @@ export const DrawerBody = styled.div`
 
   margin-top: 2em;
 
-  img {
-    height: 200px;
-    width: 200px;
-
-    border-radius: 100%;
-    border: 2px solid ${colors.white};
-  }
-
   button {
     margin-top: 1em;
   }
+`;
+
+export const Img = styled.img`
+  height: 200px;
+  width: 200px;
+
+  border-radius: 100%;
+  border: 2px solid ${colors.white};
 `;
 
 export const Team = styled.div`
@@ -97,18 +97,32 @@ export const Team = styled.div`
   padding: 5px;
 
   width: 300px;
-  height: 350px;
+  height: 440px;
 
   border-radius: 15px;
+  border: 1px solid;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
 
   background-color: ${colors.light_black};
 
   span {
     width: 100%;
+    margin-bottom: 6px;
     text-align: center;
 
     color: ${colors.gray};
     font-weight: 700;
+  }
+
+  span:last-child {
+    margin-top: auto;
+  }
+`;
+
+export const Label = styled.label`
+  cursor: pointer;
+  :hover {
+    color: ${colors.black};
+    transition: all 0.5s;
   }
 `;

@@ -6,6 +6,7 @@ export const userAuth = {
   email: "",
   emailVerified: false,
   isAnonymous: false,
+  photoURL: null,
   providerData: [
     {
       providerId: "",

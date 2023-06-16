@@ -35,6 +35,7 @@ export function Header() {
       email: "",
       emailVerified: false,
       isAnonymous: false,
+      photoURL: null,
       providerData: [
         {
           providerId: "",

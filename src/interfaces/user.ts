@@ -3,6 +3,7 @@ export interface IAuthUser {
   email: string | null;
   emailVerified: boolean;
   isAnonymous: boolean;
+  photoURL: string | null;
   providerData: Array<{
     providerId: string;
     uid: string;
