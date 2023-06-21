@@ -53,14 +53,14 @@ export function Home() {
       {loading && <S.LoadingGif src={loadingGif} alt="loading home" />}
 
       {!loading && !error && (
-        <>
+        <div className="input">
           <InputText
             placeholder="Ex: bulbasaur"
             onChange={(e) => setSearch({ ...search, name: e.target.value })}
             search
           />
           {search.name && <Card pokemon={search} />}
-        </>
+        </div>
       )}
 
       {pokeList && !loading && !search.name && (
@@ -70,7 +70,11 @@ export function Home() {
               return <Card key={index} pokemon={pokemon} />;
             })}
           </S.PokeContainer>
-          <Pagination handleClick={getPokes} pagination={pagination} setPagination={setPagination} />
+          <Pagination
+            handleClick={getPokes}
+            pagination={pagination}
+            setPagination={setPagination}
+          />
         </S.Container>
       )}
 

@@ -3,6 +3,21 @@ import { colors } from "../../constants";
 
 export const HomeStyle = styled.div`
   padding: 5px 25px;
+
+
+  @media (max-width: 360px) {
+    display: flex;
+    flex-direction: column;
+
+    .input {
+      width: 100%;
+      margin-top: 35px;
+
+      div {
+        width: 100%;
+      }
+    }
+  }
 `;
 
 export const Container = styled.div`

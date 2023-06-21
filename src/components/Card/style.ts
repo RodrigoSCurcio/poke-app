@@ -50,6 +50,11 @@ export const CardContainer = styled.div<IStyle>`
         );
       }
     `}
+
+  @media (max-width: 360px) {
+    width: 100%;
+    height: 200px;
+  }
 `;
 
 export const NameBadge = styled.strong`
@@ -84,6 +89,11 @@ export const ImgContainer = styled.div`
 export const Img = styled.img`
   width: 170px;
   height: 170px;
+
+  @media (max-width: 360px) {
+    width: 120px;
+    height: 120px;
+  }
 `;
 
 export const InfoContainer = styled.div`
@@ -124,6 +134,10 @@ export const Loading = styled.div`
 
   border-radius: 8px;
   cursor: not-allowed;
+
+  @media (max-width: 360px) {
+    width: 100%;
+  }
 `;
 
 export const LoadingGif = styled.img`
@@ -153,6 +167,10 @@ export const Error = styled.div`
 
   text-align: center;
   color: ${colors.white};
+
+  @media (max-width: 360px) {
+    width: 100%;
+  }
 `;
 
 export const ErrorImg = styled.img`
@@ -162,4 +180,8 @@ export const ErrorImg = styled.img`
   background-color: ${colors.electric};
 
   border-radius: 8px;
+
+  @media (max-width: 360px) {
+    max-width: 50%;
+  }
 `;

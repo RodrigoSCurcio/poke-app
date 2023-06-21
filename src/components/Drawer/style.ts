@@ -22,6 +22,8 @@ export const Overlay = styled.div`
   animation-name: ${OpenDrawer};
   animation-duration: 1s;
   animation-delay: 0s;
+
+  z-index: 1;
 `;
 
 export const DrawerStyle = styled.div`
@@ -38,6 +40,14 @@ export const DrawerStyle = styled.div`
   border-bottom-right-radius: 12px;
 
   color: ${colors.white};
+
+  @media (max-width: 360px) {
+    width: 100%;
+
+    border: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
 `;
 
 export const HeaderDrawer = styled.div`
@@ -79,6 +89,10 @@ export const DrawerBody = styled.div`
   button {
     margin-top: 1em;
   }
+
+  @media (max-width: 360px) {
+    margin-top: 0;
+  }
 `;
 
 export const Img = styled.img`
@@ -87,6 +101,11 @@ export const Img = styled.img`
 
   border-radius: 100%;
   border: 2px solid ${colors.white};
+
+  @media (max-width: 360px) {
+    height: 130px;
+    width: 130px;
+  }
 `;
 
 export const Team = styled.div`
@@ -116,6 +135,11 @@ export const Team = styled.div`
 
   span:last-child {
     margin-top: auto;
+  }
+
+  @media (max-width: 360px) {
+    margin-top: 0.4em;
+    height: 435px;
   }
 `;
 
