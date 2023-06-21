@@ -1,4 +1,5 @@
-![pokemon](https://user-images.githubusercontent.com/59969422/225759805-dcc5086a-9db5-4733-ad2f-aebd53273214.PNG)
+
+![poke-app](https://github.com/RodrigoSCurcio/poke-app/assets/59969422/3a47673f-2b32-49b4-b4ca-d7294b26a6eb)
 
 > Status: Em Desenvolvimento ⚠️
 
