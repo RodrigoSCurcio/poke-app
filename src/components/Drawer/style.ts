@@ -41,7 +41,7 @@ export const DrawerStyle = styled.div`
 
   color: ${colors.white};
 
-  @media (max-width: 360px) {
+  @media (max-width: 425px) {
     width: 100%;
 
     border: none;
@@ -90,7 +90,7 @@ export const DrawerBody = styled.div`
     margin-top: 1em;
   }
 
-  @media (max-width: 360px) {
+  @media (max-width: 425px) {
     margin-top: 0;
   }
 `;
@@ -102,7 +102,7 @@ export const Img = styled.img`
   border-radius: 100%;
   border: 2px solid ${colors.white};
 
-  @media (max-width: 360px) {
+  @media (max-width: 425px) {
     height: 130px;
     width: 130px;
   }
@@ -137,7 +137,7 @@ export const Team = styled.div`
     margin-top: auto;
   }
 
-  @media (max-width: 360px) {
+  @media (max-width: 425px) {
     margin-top: 0.4em;
     height: 435px;
   }

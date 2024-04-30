@@ -51,7 +51,11 @@ export const CardContainer = styled.div<IStyle>`
       }
     `}
 
-  @media (max-width: 360px) {
+  @media (max-width: 1024px) {
+    width: 49%;
+  }
+
+  @media (max-width: 425px) {
     width: 100%;
     height: 200px;
   }
@@ -90,7 +94,7 @@ export const Img = styled.img`
   width: 170px;
   height: 170px;
 
-  @media (max-width: 360px) {
+  @media (max-width: 425px) {
     width: 120px;
     height: 120px;
   }
@@ -135,7 +139,7 @@ export const Loading = styled.div`
   border-radius: 8px;
   cursor: not-allowed;
 
-  @media (max-width: 360px) {
+  @media (max-width: 425px) {
     width: 100%;
   }
 `;
@@ -168,7 +172,7 @@ export const Error = styled.div`
   text-align: center;
   color: ${colors.white};
 
-  @media (max-width: 360px) {
+  @media (max-width: 425px) {
     width: 100%;
   }
 `;
@@ -181,7 +185,7 @@ export const ErrorImg = styled.img`
 
   border-radius: 8px;
 
-  @media (max-width: 360px) {
+  @media (max-width: 425px) {
     max-width: 50%;
   }
 `;

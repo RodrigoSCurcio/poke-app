@@ -5,7 +5,7 @@ export const HomeStyle = styled.div`
   padding: 5px 25px;
 
 
-  @media (max-width: 360px) {
+  @media (max-width: 425px) {
     display: flex;
     flex-direction: column;
 
